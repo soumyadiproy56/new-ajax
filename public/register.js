@@ -10,28 +10,40 @@ async function handleFormSubmission(event) {
 
   try {
     console.log(JSON.stringify(data));
-    // Use fetch API to send AJAX POST request
-    const response = await fetch("/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
 
-    // Check if the response status is ok (2xx)
-    if (!response.ok) {
-      throw new Error(`Server error: ${response.statusText}`);
-    }
+    // Create a new XMLHttpRequest object
+    const xhr = new XMLHttpRequest();
 
-    // Parse the JSON response
-    const responseData = await response.json();
+    // Configure the request
+    xhr.open("POST", "/register");
 
-    // Save the response data to local storage
-    localStorage.setItem("userDetails", JSON.stringify(responseData));
+    // Set the request header
+    xhr.setRequestHeader("Content-Type", "application/json");
 
-    // Additional code to render or use the data
-    window.location.href = "/user";
+    // Define what happens when the request completes
+    xhr.onload = function () {
+      // Check if the response status is ok (2xx)
+      if (xhr.status >= 200 && xhr.status < 300) {
+        // Parse the JSON response
+        const responseData = JSON.parse(xhr.responseText);
+
+        // Save the response data to local storage
+        localStorage.setItem("userDetails", JSON.stringify(responseData));
+
+        // Redirect to the user page
+        window.location.href = "/user";
+      } else {
+        console.error(`Server error: ${xhr.statusText}`);
+      }
+    };
+
+    // Define what happens in case of an error
+    xhr.onerror = function () {
+      console.error("Error during AJAX POST request");
+    };
+
+    // Send the request with the data
+    xhr.send(JSON.stringify(data));
   } catch (error) {
     console.error("Error during AJAX POST request:", error);
   }
