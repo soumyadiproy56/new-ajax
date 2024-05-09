@@ -1,0 +1,85 @@
+/* Navigation bar styles */
+nav {
+  background-color: #333; /* Dark background color */
+  padding: 10px; /* Padding for spacing */
+  display: flex; /* Use flexbox for layout */
+  justify-content: center; /* Center the content */
+}
+
+/* Navigation list */
+nav ul {
+  list-style-type: none; /* Remove default list styling */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  display: flex; /* Use flexbox for layout */
+}
+
+/* Navigation list items */
+nav ul li {
+  margin-right: 15px; /* Add spacing between list items */
+}
+
+/* Navigation links */
+nav ul li a {
+  color: white; /* White text color */
+  text-decoration: none; /* Remove text underline */
+  padding: 8px 16px; /* Add padding to links */
+  border-radius: 4px; /* Add border radius for rounded corners */
+  transition: background-color 0.3s; /* Add transition for hover effect */
+}
+
+/* Navigation links hover effect */
+nav ul li a:hover {
+  background-color: #555; /* Change background color on hover */
+}
+
+body {
+  padding: 2rem;
+}
+
+.userRegister {
+  margin-left: 42%;
+}
+
+#registrationForm {
+  display: inline-block;
+  margin-left: 38%;
+  text-align: left;
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+}
+
+#registrationForm label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#registrationForm input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  display: block;
+  width: 5rem;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
